@@ -14,10 +14,12 @@ sent to the standard error to make assertions usable outside of `@test`
 blocks too.
 
 Features:
+
 - [assertions](#usage)
 - [temporary directory handling](#working-with-temporary-directories)
 
 Dependencies:
+
 - [`bats-support`][bats-support] - output formatting, function call
   restriction
 
@@ -26,22 +28,20 @@ load this library.
 
 ## **Index of all functions**
 
-| Test File Types | Test File Attributes | Test File Content |
-| ----------- | ----------- | ----------- |
-| _Check if a **file or directory** exists!_ <br/> - [assert_exists](#assert_exists) <br/> - [assert_not_exists](#assert_not_exists) | _Check if file is **executable**!_ <br/> - [assert_file_executable](#assert_file_executable) <br/> - [assert_file_not_executable](#assert_file_not_executable) | _Check if file is **empty**!_ <br/> - [assert_file_empty](#assert_file_empty) <br/> - [assert_file_not_empty](#assert_file_not_empty) |
-| _Check if a **file** exists!_ <br/> - [assert_file_exists](#assert_file_exists) <br/> - [assert_file_not_exists](#assert_file_not_exists) | _Check the **owner** of a file!_ <br/> - [assert_file_owner](#assert_file_owner) <br/> - [assert_not_file_owner](#assert_not_file_owner) | _Check if file **contains regex**!_ <br/>  - [assert_file_contains](#assert_file_contains) <br/> - [assert_file_not_contains](#assert_file_not_contains) |
-| _Check if a **directory** exists!_ <br/> - [assert_dir_exists](#assert_dir_exists) <br/> - [assert_dir_not_exists](#assert_dir_not_exists) | _Check the **permission** of a file!_ <br/> - [assert_file_permission](#assert_file_permission) <br/> - [assert_not_file_permission](#assert_not_file_permission) | _Check if file is a **symlink to target**!_ <br/> - [assert_symlink_to](#assert_symlink_to) <br/> - [assert_not_symlink_to](#assert_not_symlink_to) |
-| _Check if a **link** exists!_ <br/> - [assert_link_exists](#assert_link_exists) <br/> - [assert_link_not_exists](#assert_link_not_exists) | _Check the **size** of a file **by bytes**!_ <br/> - [assert_file_size_equals](#assert_file_size_equals) | _Check if file **contents are the same**!_ <br/> - [assert_files_equal](#assert_files_equal) |
-| _Check if a **block special file** exists!_ <br/> - [assert_block_exists](#assert_block_exists) <br/> - [assert_block_not_exists](#assert_block_not_exists) | _Check if a file have **zero bytes**!_ <br/> - [assert_size_zero](#assert_size_zero) <br/> - [assert_size_not_zero](#assert_size_not_zero) | |
-| _Check if a **character special file** exists!_ <br/> - [assert_character_exists](#assert_character_exists) <br/> - [assert_character_not_exists](#assert_character_not_exists) | _Check the **groupID** of a file!_ <br/> - [assert_file_group_id_set](#assert_file_group_id_set) <br/> - [assert_file_not_group_id_set](#assert_file_not_group_id_set) | |
-| _Check if a **socket** exists!_ <br/> - [assert_socket_exists](#assert_socket_exists) <br/> - [assert_socket_not_exists](#assert_socket_not_exists) | _Check the **userID** of a file!_ <br/> - [assert_file_user_id_set](#assert_file_user_id_set) <br/> - [assert_file_not_user_id_set](#assert_file_not_user_id_set) | |
-| _Check if a **fifo special file** exists!_ <br/> - [assert_fifo_exists](#assert_fifo_exists) <br/> - [assert_fifo_not_exists](#assert_fifo_not_exists) | _Check if a **stickybit is set**!_ <br/> - [assert_sticky_bit](#assert_sticky_bit) <br/> - [assert_not_sticky_bit](#assert_not_sticky_bit) | |
-
+| Test File Types                                                                                                                                                                 | Test File Attributes                                                                                                                                                   | Test File Content                                                                                                                                        |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| _Check if a **file or directory** exists!_ <br/> - [assert_exists](#assert_exists) <br/> - [assert_not_exists](#assert_not_exists)                                              | _Check if file is **executable**!_ <br/> - [assert_file_executable](#assert_file_executable) <br/> - [assert_file_not_executable](#assert_file_not_executable)         | _Check if file is **empty**!_ <br/> - [assert_file_empty](#assert_file_empty) <br/> - [assert_file_not_empty](#assert_file_not_empty)                    |
+| _Check if a **file** exists!_ <br/> - [assert_file_exists](#assert_file_exists) <br/> - [assert_file_not_exists](#assert_file_not_exists)                                       | _Check the **owner** of a file!_ <br/> - [assert_file_owner](#assert_file_owner) <br/> - [assert_not_file_owner](#assert_not_file_owner)                               | _Check if file **contains regex**!_ <br/>  - [assert_file_contains](#assert_file_contains) <br/> - [assert_file_not_contains](#assert_file_not_contains) |
+| _Check if a **directory** exists!_ <br/> - [assert_dir_exists](#assert_dir_exists) <br/> - [assert_dir_not_exists](#assert_dir_not_exists)                                      | _Check the **permission** of a file!_ <br/> - [assert_file_permission](#assert_file_permission) <br/> - [assert_not_file_permission](#assert_not_file_permission)      | _Check if file is a **symlink to target**!_ <br/> - [assert_symlink_to](#assert_symlink_to) <br/> - [assert_not_symlink_to](#assert_not_symlink_to)      |
+| _Check if a **link** exists!_ <br/> - [assert_link_exists](#assert_link_exists) <br/> - [assert_link_not_exists](#assert_link_not_exists)                                       | _Check the **size** of a file **by bytes**!_ <br/> - [assert_file_size_equals](#assert_file_size_equals)                                                               | _Check if file **contents are the same**!_ <br/> - [assert_files_equal](#assert_files_equal)                                                             |
+| _Check if a **block special file** exists!_ <br/> - [assert_block_exists](#assert_block_exists) <br/> - [assert_block_not_exists](#assert_block_not_exists)                     | _Check if a file have **zero bytes**!_ <br/> - [assert_size_zero](#assert_size_zero) <br/> - [assert_size_not_zero](#assert_size_not_zero)                             |                                                                                                                                                          |
+| _Check if a **character special file** exists!_ <br/> - [assert_character_exists](#assert_character_exists) <br/> - [assert_character_not_exists](#assert_character_not_exists) | _Check the **groupID** of a file!_ <br/> - [assert_file_group_id_set](#assert_file_group_id_set) <br/> - [assert_file_not_group_id_set](#assert_file_not_group_id_set) |                                                                                                                                                          |
+| _Check if a **socket** exists!_ <br/> - [assert_socket_exists](#assert_socket_exists) <br/> - [assert_socket_not_exists](#assert_socket_not_exists)                             | _Check the **userID** of a file!_ <br/> - [assert_file_user_id_set](#assert_file_user_id_set) <br/> - [assert_file_not_user_id_set](#assert_file_not_user_id_set)      |                                                                                                                                                          |
+| _Check if a **fifo special file** exists!_ <br/> - [assert_fifo_exists](#assert_fifo_exists) <br/> - [assert_fifo_not_exists](#assert_fifo_not_exists)                          | _Check if a **stickybit is set**!_ <br/> - [assert_sticky_bit](#assert_sticky_bit) <br/> - [assert_not_sticky_bit](#assert_not_sticky_bit)                             |                                                                                                                                                          |
 
 ## **Usage**
 
 ## _Test File Types:_
-
 
 ### `assert_exists`
 
@@ -60,8 +60,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-file-or-dir
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_not_exists`
 
@@ -80,10 +80,10 @@ On failure, the path is displayed.
 path : /path/to/existent-file-or-dir
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_file_exists`
 
@@ -102,8 +102,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-file
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_file_not_exists`
 
@@ -122,10 +122,10 @@ On failure, the path is displayed.
 path : /path/to/existing-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_dir_exists`
 
@@ -144,8 +144,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-directory
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_dir_not_exists`
 
@@ -164,10 +164,10 @@ On failure, the path is displayed.
 path : /path/to/existing-directory
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_link_exists`
 
@@ -186,8 +186,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-link-file
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_link_not_exists`
 
@@ -206,10 +206,10 @@ On failure, the path is displayed.
 path : /path/to/existing-link-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_block_exists`
 
@@ -228,8 +228,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-block-file
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_block_not_exists`
 
@@ -248,10 +248,10 @@ On failure, the path is displayed.
 path : /path/to/existing-block-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_character_exists`
 
@@ -270,8 +270,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-character-file
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_character_not_exists`
 
@@ -290,10 +290,10 @@ On failure, the path is displayed.
 path : /path/to/existing-character-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_socket_exists`
 
@@ -312,8 +312,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-socket
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_socket_not_exists`
 
@@ -332,10 +332,10 @@ On failure, the path is displayed.
 path : /path/to/existing-socket
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_fifo_exists`
 
@@ -354,8 +354,8 @@ On failure, the path is displayed.
 path : /path/to/non-existent-fifo-file
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_fifo_not_exists`
 
@@ -374,15 +374,13 @@ On failure, the path is displayed.
 path : /path/to/existing-fifo-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
 ---
 
-
 ## _Test File Attributes:_
-
-
 
 ### `assert_file_executable`
 
@@ -401,8 +399,8 @@ On failure, the path is displayed.
 path : /path/to/executable-file
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_file_not_executable`
 
@@ -421,10 +419,10 @@ On failure, the path is displayed.
 path : /path/to/executable-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_file_owner`
 
@@ -444,8 +442,8 @@ path : /path/to/notowner
 owner : user
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_not_file_owner`
 
@@ -465,10 +463,10 @@ path : /path/to/owner
 owner : $owner
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_file_permission`
 
@@ -488,8 +486,8 @@ path : /path/to/nopermission
 permission: $permission
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_not_file_permission`
 
@@ -509,24 +507,26 @@ path : /path/to/permission
 permission : $permission
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
 
-
 ### `assert_file_size_equals`
+
 Fail if the given file size does not match the input.
+
 ```bash
 @test 'assert_file_size_equals() {
     assert_file_size_equals /path/to/non-empty-file bytecount
 }
 ```
+
 On failure, the path and expected bytecount are displayed.
 
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_size_zero`
 
@@ -545,8 +545,8 @@ On failure, the path is displayed.
 path : /path/to/notzerobyte
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_size_not_zero`
 
@@ -565,10 +565,10 @@ On failure, the path is displayed.
 path : /path/to/zerobyte
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_file_group_id_set`
 
@@ -587,8 +587,8 @@ On failure, the path is displayed.
 path : /path/to/groupidnotset
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_file_not_group_id_set`
 
@@ -607,10 +607,10 @@ On failure, the path is displayed.
 path : /path/to/groupdidset
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_file_user_id_set`
 
@@ -629,8 +629,8 @@ On failure, the path is displayed.
 path : /path/to/useridnotset
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_file_not_user_id_set`
 
@@ -649,10 +649,10 @@ On failure, the path is displayed.
 path : /path/to/userdidset
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
-
 
 ### `assert_sticky_bit`
 
@@ -671,8 +671,8 @@ On failure, the path is displayed.
 path : /path/to/notstickybit
 --
 ```
-[Back to index](#index-of-all-functions)
 
+[Back to index](#index-of-all-functions)
 
 ### `assert_not_sticky_bit`
 
@@ -691,22 +691,25 @@ On failure, the path is displayed.
 path : /path/to/stickybit
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
 
-
 ## _Test File Content:_
 
-
 ### `assert_file_empty`
+
 Fail if the given file or directory is not empty.
+
 ```bash
 @test 'assert_file_empty()' {
   assert_file_empty /path/to/empty-file
 }
 ```
+
 On failure, the path and the content of the file is displayed.
+
 ```
 -- file is not empty --
 path : /path/to/empty-file
@@ -714,34 +717,41 @@ output (2 lines) : content-line-1
 content-line-2
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
-
 ### `assert_file_not_empty`
+
 Fail if the given file or directory empty.
+
 ```bash
 @test 'assert_file_not_empty() {
   assert_file_not_empty /path/to/non-empty-file
 }
 ```
+
 On failure, the path is displayed.
+
 ```
 -- file empty, but it was expected to contain something --
 path : /path/to/non-empty-file
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
 
-
 ### `assert_file_contains`
+
 Fail if the given file does not contain the regex.
+
 ```bash
 @test 'assert_file_contains() {
     assert_file_contains /path/to/non-empty-file regex engine
 }
 ```
+
 `engine` is optional and can be one of `grep`, `egrep` or `pcregrep`. The specified engine must be available on the system running the tests.
 
 On failure, the path and expected regex are displayed.
@@ -751,12 +761,15 @@ On failure, the path and expected regex are displayed.
 ---
 
 ### `assert_file_not_contains`
+
 Fail if the given file contains the regex or if the file does not exist.
+
 ```bash
 @test 'assert_file_not_contains() {
     assert_file_not_contains /path/to/non-empty-file regex
 }
 ```
+
 On failure, the path and regex are displayed.
 
 [Back to index](#index-of-all-functions)
@@ -764,29 +777,37 @@ On failure, the path and regex are displayed.
 ---
 
 ### `assert_symlink_to`
+
 Fail if the given file is not a symbolic to a defined target.
+
 ```bash
 @test 'assert_symlink_to() {
   assert_symlink_to /path/to/source-file /path/to/symlink
 }
 ```
+
 On failure, the path is displayed.
+
 ```
 -- symbolic link does not have the correct target --
 path : /path/to/symlink
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
-
 ### `assert_not_symlink_to`
+
 Fail if the given file is a symbolic to a defined target.
+
 ```bash
 @test 'assert_not_symlink_to() {
   assert_not_symlink_to /path/to/source-file /path/to/symlink
 }
 ```
+
 On failure, the path is displayed.
+
 ```
 -- file is a symbolic link --
 path : /path/to/symlink
@@ -795,27 +816,32 @@ path : /path/to/symlink
 path : /path/to/symlink
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ### `assert_files_equal`
+
 Fail if the given files are not the same.
+
 ```bash
 @test 'assert_files_equal()' {
   assert_files_equal /path/to/file1 /path/to/file2
 }
 ```
+
 On failure, the paths are displayed.
+
 ```
 -- files are not the same --
 path1 : /path/to/file1
 path2 : /path/to/file2
 --
 ```
+
 [Back to index](#index-of-all-functions)
 
 ---
 ---
-
 
 ## Working with temporary directories
 
@@ -823,7 +849,6 @@ When testing code that manipulates the filesystem, it is good practice
 to run tests in clean, throw-away environments to ensure correctness and
 reproducibility. Therefore, this library includes convenient functions
 to create and destroy temporary directories.
-
 
 ### `temp_make`
 
@@ -881,7 +906,6 @@ Generally speaking, the directory name is of the following form.
 <prefix><test-filename>-<test-number>-<random-string>
 ```
 
-
 ### `temp_del`
 
 Delete a temporary directory, typically created with `temp_make`.
@@ -914,7 +938,7 @@ When `BATSLIB_TEMP_PRESERVE` is set to 1, the function succeeds but the
 directory is not deleted.
 
 ```bash
-$ BATSLIB_TEMP_PRESERVE=1 bats sample.bats
+BATSLIB_TEMP_PRESERVE=1 bats sample.bats
 ```
 
 #### Preserve directory on failure
@@ -926,13 +950,12 @@ When `BATSLIB_TEMP_PRESERVE_ON_FAILURE` is set to 1, the function
 succeeds but the directory is not deleted if the test has failed.
 
 ```bash
-$ BATSLIB_TEMP_PRESERVE_ON_FAILURE=1 bats sample.bats
+BATSLIB_TEMP_PRESERVE_ON_FAILURE=1 bats sample.bats
 ```
 
 The outcome of a test is only known in `teardown`, therefore this
 feature can be used only when `temp_del` is called from that location.
 Otherwise and error is displayed on the standard error.
-
 
 ## Transforming displayed paths
 
