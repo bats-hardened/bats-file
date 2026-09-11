@@ -22,6 +22,12 @@ bats_sudo() {
   fi
 }
 
+skip_on_msys() {
+  if [[ ${OSTYPE-} == msys ]]; then
+    skip "$1"
+  fi
+}
+
 export TEST_MAIN_DIR="${BATS_TEST_DIRNAME}/.."
 export TEST_DEPS_DIR="${TEST_DEPS_DIR-${TEST_MAIN_DIR}/..}"
 
