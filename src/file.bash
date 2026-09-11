@@ -43,9 +43,9 @@ assert_exists() {
   if [[ ! -e "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file or directory does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file or directory does not exist' |
+      fail
   fi
 }
 
@@ -67,9 +67,9 @@ assert_file_exists() {
   if [[ ! -f "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file does not exist' |
+      fail
   fi
 }
 
@@ -91,9 +91,9 @@ assert_dir_exists() {
   if [[ ! -d "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'directory does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'directory does not exist' |
+      fail
   fi
 }
 
@@ -115,9 +115,9 @@ assert_block_exists() {
   if [[ ! -b "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'block special file does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'block special file does not exist' |
+      fail
   fi
 }
 
@@ -139,9 +139,9 @@ assert_character_exists() {
   if [[ ! -c "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'character special file does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'character special file does not exist' |
+      fail
   fi
 }
 
@@ -163,9 +163,9 @@ assert_link_exists() {
   if [[ ! -L "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'symbolic link does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'symbolic link does not exist' |
+      fail
   fi
 }
 
@@ -187,9 +187,9 @@ assert_socket_exists() {
   if [[ ! -S "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'socket does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'socket does not exist' |
+      fail
   fi
 }
 
@@ -211,9 +211,9 @@ assert_fifo_exists() {
   if [[ ! -p "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'fifo does not exist' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'fifo does not exist' |
+      fail
   fi
 }
 
@@ -235,9 +235,9 @@ assert_file_executable() {
   if [[ ! -x "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file is not executable' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file is not executable' |
+      fail
   fi
 }
 
@@ -258,12 +258,12 @@ assert_file_executable() {
 assert_files_equal() {
   local -r file1="$1"
   local -r file2="$2"
-  if ! cmp -s "$file1" "$file2" >/dev/null ; then
+  if ! cmp -s "$file1" "$file2" >/dev/null; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file1/$rem/$add}" 'path' "${file2/$rem/$add}" \
-      | batslib_decorate 'files are not the same' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file1/$rem/$add}" 'path' "${file2/$rem/$add}" |
+      batslib_decorate 'files are not the same' |
+      fail
   fi
 }
 
@@ -275,9 +275,9 @@ _bats_get_file_owner() {
   local -r output_var=$1
   local -r file=$2
   if [[ "$OSTYPE" == darwin* ]]; then
-      local -ra cmd_params=(-f %Su)
+    local -ra cmd_params=(-f %Su)
   else
-      local -ra cmd_params=(-c %U)
+    local -ra cmd_params=(-c %U)
   fi
   printf -v "$output_var" "%s" "$(stat "${cmd_params[@]}" "$file")"
 }
@@ -298,7 +298,7 @@ _bats_get_file_owner() {
 assert_file_owner() {
   local -r owner="$1"
   local -r file="$2"
-  
+
   local actual_owner
   _bats_get_file_owner actual_owner "$file"
   readonly actual_owner
@@ -306,9 +306,9 @@ assert_file_owner() {
   if [[ "$actual_owner" != "$owner" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate "user $owner is not the owner of the file" \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate "user $owner is not the owner of the file" |
+      fail
   fi
 }
 
@@ -331,17 +331,17 @@ assert_file_permission() {
   local -r file="$2"
 
   if [[ "$OSTYPE" == darwin* ]]; then
-      local -r actual_permission=$(stat -f '%A' "$file")
+    local -r actual_permission=$(stat -f '%A' "$file")
   else
-      local -r actual_permission=$(stat -c "%a" "$file")
+    local -r actual_permission=$(stat -c "%a" "$file")
   fi
 
   if [[ "$actual_permission" != "$permission" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate "file does not have permissions $permission" \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate "file does not have permissions $permission" |
+      fail
   fi
 }
 
@@ -364,9 +364,9 @@ assert_size_zero() {
   if [ -s "$file" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file is greater than 0 byte' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file is greater than 0 byte' |
+      fail
   fi
 }
 
@@ -388,9 +388,9 @@ assert_file_group_id_set() {
   if [[ ! -g "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'set-group-ID is not set' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'set-group-ID is not set' |
+      fail
   fi
 }
 
@@ -412,9 +412,9 @@ assert_file_user_id_set() {
   if [[ ! -u "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'set-user-ID is not set' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'set-user-ID is not set' |
+      fail
   fi
 }
 
@@ -436,9 +436,9 @@ assert_sticky_bit() {
   if [[ ! -k "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'stickybit is not set' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'stickybit is not set' |
+      fail
   fi
 }
 
@@ -447,8 +447,7 @@ _bats_file_readlinkf_macos() {
   cd "$(dirname "$TARGET_FILE")" 2>/dev/null || return
   TARGET_FILE=$(basename "$TARGET_FILE")
   # Iterate down a (possible) chain of symlinks
-  while [ -L "$TARGET_FILE" ]
-  do
+  while [ -L "$TARGET_FILE" ]; do
     TARGET_FILE=$(readlink "$TARGET_FILE")
     cd "$(dirname "$TARGET_FILE")" 2>/dev/null || return
     TARGET_FILE=$(basename "$TARGET_FILE")
@@ -479,24 +478,28 @@ assert_symlink_to() {
   else
     local -ra readlink_command=(readlink -f)
   fi
-  
-  if [ ! -L "$link"   ]; then
+
+  if [ ! -L "$link" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${link/$rem/$add}" \
-      | batslib_decorate 'file is not a symbolic link' \
-      | fail
+    batslib_print_kv_single 4 'path' "${link/$rem/$add}" |
+      batslib_decorate 'file is not a symbolic link' |
+      fail
     return 1
   fi
 
-  local realsource; realsource=$( "${readlink_command[@]}" "$link" ); readonly realsource
-  local realexpectedsource; realexpectedsource=$( "${readlink_command[@]}" "$sourcefile" ); readonly realexpectedsource
-  if [ ! "${realsource}" = "${realexpectedsource}"  ]; then
+  local realsource
+  realsource=$("${readlink_command[@]}" "$link")
+  readonly realsource
+  local realexpectedsource
+  realexpectedsource=$("${readlink_command[@]}" "$sourcefile")
+  readonly realexpectedsource
+  if [ ! "${realsource}" = "${realexpectedsource}" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${link/$rem/$add}" \
-      | batslib_decorate 'symbolic link does not have the correct target' \
-      | fail
+    batslib_print_kv_single 4 'path' "${link/$rem/$add}" |
+      batslib_decorate 'symbolic link does not have the correct target' |
+      fail
   fi
 }
 # Fail and display path of the file (or directory) if it does not match a size.
@@ -515,13 +518,13 @@ assert_symlink_to() {
 assert_file_size_equals() {
   local -r file="$1"
   local -r expectedsize="$2"
-  local -r size=$( wc -c "$file" | awk '{print $1}' )
+  local -r size=$(wc -c "$file" | awk '{print $1}')
   if [ ! "$expectedsize" = "$size" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file size does not match expected size' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file size does not match expected size' |
+      fail
   fi
 }
 # Fail and display path of the file (or directory) if it does not contain a string.
@@ -543,25 +546,25 @@ assert_file_contains() {
   local -r file="$1"
   local -r regex="$2"
   local -r cmd="${3:-grep}"
-  
+
   case "$cmd" in
-    grep|egrep|pcregrep)
+    grep | egrep | pcregrep)
       if ! type "${cmd}" &>/dev/null; then
-        batslib_decorate "Regex engine \"${cmd}\" not available on this system" \
-          | fail
+        batslib_decorate "Regex engine \"${cmd}\" not available on this system" |
+          fail
       fi
-    ;;
+      ;;
     *)
-      batslib_decorate "Regex engine \"${cmd}\" not in allow list" \
-      | fail  
-    ;;
+      batslib_decorate "Regex engine \"${cmd}\" not in allow list" |
+        fail
+      ;;
   esac
   if ! "$cmd" -q "$regex" "$file"; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" 'regex' "$regex" \
-      | batslib_decorate 'file does not contain regex' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" 'regex' "$regex" |
+      batslib_decorate 'file does not contain regex' |
+      fail
   fi
 }
 # Fail and display path of the file (or directory) if it does contain a string.
@@ -585,16 +588,16 @@ assert_file_not_contains() {
   if [[ ! -f "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" 'regex' "$regex" \
-      | batslib_decorate 'file does not exist' \
-      | fail
-  
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" 'regex' "$regex" |
+      batslib_decorate 'file does not exist' |
+      fail
+
   elif grep -q "$regex" "$file"; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" 'regex' "$regex" \
-      | batslib_decorate 'file contains regex' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" 'regex' "$regex" |
+      batslib_decorate 'file contains regex' |
+      fail
 
   fi
 }
@@ -616,12 +619,13 @@ assert_file_empty() {
   if [[ -s "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    { local -ir width=8
+    {
+      local -ir width=8
       batslib_print_kv_single "$width" 'path' "${file/$rem/$add}"
       batslib_print_kv_single_or_multi "$width" \
-          'output' "$(cat "$file")"
-    } | batslib_decorate 'file is not empty' \
-      | fail
+        'output' "$(cat "$file")"
+    } | batslib_decorate 'file is not empty' |
+      fail
   fi
 }
 # Fail and display path of the file (or directory) if it exists. This
@@ -642,9 +646,9 @@ assert_not_exists() {
   if [[ -e "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file or directory exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file or directory exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -666,9 +670,9 @@ assert_file_not_exists() {
   if [[ -f "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -690,9 +694,9 @@ assert_dir_not_exists() {
   if [[ -d "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'directory exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'directory exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -714,9 +718,9 @@ assert_block_not_exists() {
   if [[ -b "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'block special file exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'block special file exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -738,9 +742,9 @@ assert_character_not_exists() {
   if [[ -c "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'character special file exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'character special file exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -762,9 +766,9 @@ assert_link_not_exists() {
   if [[ -L "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'symbolic link exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'symbolic link exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -786,9 +790,9 @@ assert_socket_not_exists() {
   if [[ -S "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'socket exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'socket exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -810,9 +814,9 @@ assert_fifo_not_exists() {
   if [[ -p "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'fifo exists, but it was expected to be absent' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'fifo exists, but it was expected to be absent' |
+      fail
   fi
 }
 
@@ -834,9 +838,9 @@ assert_file_not_executable() {
   if [[ -x "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file is executable, but it was expected to be not executable' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file is executable, but it was expected to be not executable' |
+      fail
   fi
 }
 
@@ -864,9 +868,9 @@ assert_not_file_owner() {
   if [[ "$actual_owner" == "$expected_owner" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate "user $expected_owner is the owner of the file, but it was expected not to be" \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate "user $expected_owner is the owner of the file, but it was expected not to be" |
+      fail
   fi
 }
 
@@ -888,17 +892,17 @@ assert_not_file_permission() {
   local -r file="$2"
 
   if [[ "$OSTYPE" == darwin* ]]; then
-      local -r actual_permission=$(stat -f '%A' "$file")
+    local -r actual_permission=$(stat -f '%A' "$file")
   else
-      local -r actual_permission=$(stat -c "%a" "$file")
+    local -r actual_permission=$(stat -c "%a" "$file")
   fi
 
   if [ "$actual_permission" -eq "$permission" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate "file has permissions $permission, but it was expected not to have" \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate "file has permissions $permission, but it was expected not to have" |
+      fail
   fi
 }
 
@@ -913,12 +917,12 @@ assert_not_file_permission() {
 assert_files_not_equal() {
   local -r file1="$1"
   local -r file2="$2"
-  if cmp -s "$file1" "$file2" >/dev/null ; then
+  if cmp -s "$file1" "$file2" >/dev/null; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file1/$rem/$add}" 'path' "${file2/$rem/$add}" \
-      | batslib_decorate 'files are the same' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file1/$rem/$add}" 'path' "${file2/$rem/$add}" |
+      batslib_decorate 'files are the same' |
+      fail
   fi
 }
 
@@ -940,12 +944,11 @@ assert_size_not_zero() {
   if [[ ! -s "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file is 0 byte, but it was expected not to be' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file is 0 byte, but it was expected not to be' |
+      fail
   fi
 }
-
 
 # Fail if group id is set. This
 # function is the logical complement of `assert_file_group_id_set'.
@@ -965,12 +968,11 @@ assert_file_not_group_id_set() {
   if [ -g "$file" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'group id is set, but it was expected not to be' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'group id is set, but it was expected not to be' |
+      fail
   fi
 }
-
 
 # Fail if user id is set. This
 # function is the logical complement of `assert_file_user_id_set'.
@@ -990,9 +992,9 @@ assert_file_not_user_id_set() {
   if [ -u "$file" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'user id is set, but it was expected not to be' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'user id is set, but it was expected not to be' |
+      fail
   fi
 }
 
@@ -1014,9 +1016,9 @@ assert_no_sticky_bit() {
   if [ -k "$file" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'stickybit is set, but it was expected not to be' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'stickybit is set, but it was expected not to be' |
+      fail
   fi
 }
 
@@ -1032,27 +1034,26 @@ assert_no_sticky_bit() {
 assert_not_symlink_to() {
   local -r sourcefile="$1"
   local -r link="$2"
-  
-  
+
   if [[ $OSTYPE == darwin* ]]; then
     local -ra readlink_command=(_bats_file_readlinkf_macos)
   else
     local -ra readlink_command=(readlink -f)
   fi
-  
-  if [ -L "$link"   ]; then
+
+  if [ -L "$link" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${link/$rem/$add}" \
-      | batslib_decorate 'file is a symbolic link' \
-      | fail
+    batslib_print_kv_single 4 'path' "${link/$rem/$add}" |
+      batslib_decorate 'file is a symbolic link' |
+      fail
   fi
 
-  local -r realsource=$( "${readlink_command[@]}" "$link" )
-  if [ "$realsource" = "$sourcefile"  ]; then
-    batslib_print_kv_single 4 'path' "${link/$rem/$add}" \
-      | batslib_decorate 'symbolic link does have the correct target' \
-      | fail
+  local -r realsource=$("${readlink_command[@]}" "$link")
+  if [ "$realsource" = "$sourcefile" ]; then
+    batslib_print_kv_single 4 'path' "${link/$rem/$add}" |
+      batslib_decorate 'symbolic link does have the correct target' |
+      fail
   fi
 }
 # Fail and display path of the file (or directory) if it is empty. This
@@ -1073,9 +1074,9 @@ assert_file_not_empty() {
   if [[ ! -s "$file" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
     local -r add="${BATSLIB_FILE_PATH_ADD-}"
-    batslib_print_kv_single 4 'path' "${file/$rem/$add}" \
-      | batslib_decorate 'file empty, but it was expected to contain something' \
-      | fail
+    batslib_print_kv_single 4 'path' "${file/$rem/$add}" |
+      batslib_decorate 'file empty, but it was expected to contain something' |
+      fail
   fi
 }
 
