@@ -3,8 +3,8 @@ set -eu
 
 bats_npm_package='@bats-hardened/bats'
 bats_version=$(
-  npm query "#${bats_npm_package}" --package-lock-only \
-    | node -p 'JSON.parse(require("fs").readFileSync(0, "utf8"))[0].version'
+  npm query "#${bats_npm_package}" --package-lock-only |
+    node -p 'JSON.parse(require("fs").readFileSync(0, "utf8"))[0].version'
 )
 bats_archive_url="https://github.com/bats-hardened/bats-core/archive/refs/tags/v${bats_version}.tar.gz"
 bats_tmp_dir=$(mktemp -d)
