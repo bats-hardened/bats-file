@@ -674,13 +674,13 @@ path : /path/to/notstickybit
 [Back to index](#Index-of-all-functions)
 
 
-### `assert_not_sticky_bit`
+### `assert_no_sticky_bit`
 
 Fail if stickybit is set.
 
 ```bash
-@test 'assert_not_sticky_bit() {
-  assert_not_sticky_bit /path/to/notstickybit
+@test 'assert_no_sticky_bit() {
+  assert_no_sticky_bit /path/to/notstickybit
 }
 ```
 
