@@ -1,8 +1,8 @@
 {
-  "name": "bats-file",
+  "name": "@bats-hardened/bats-file",
   "version": "0.2.0",
   "private": true,
   "peerDependencies": {
-    "bats-support": "0.3.0"
+    "@bats-hardened/bats-support": "0.3.1-beta06"
   }
 }
