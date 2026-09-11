@@ -7,9 +7,7 @@
   },
   "MD024": false,
   "MD033": {
-    "table_allowed_elements": [
-      "br"
-    ]
+    "table_allowed_elements": ["br"]
   },
   "MD040": false
 }

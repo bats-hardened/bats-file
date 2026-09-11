@@ -34,7 +34,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added assert_files_equal assert_files_not_equal functions!
 - Added 2 test scripts for assert_files_equal assert_files_not_equal
 
-
 ## [0.2.0] - 2016-12-07
 
 ### Added
@@ -45,7 +44,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Function comments listing path transformation variables incorrectly
 
-
 ## 0.1.0 - 2016-03-22
 
 ### Added
@@ -53,6 +51,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Testing file existence with `assert_file_exist` and
   `assert_file_not_exist`
 - `npm` support
-
 
 [0.2.0]: https://github.com/bats-core/bats-file/compare/v0.1.0...v0.2.0
