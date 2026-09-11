@@ -60,7 +60,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-file-or-dir
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_exists`
@@ -80,7 +80,7 @@ On failure, the path is displayed.
 path : /path/to/existent-file-or-dir
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -102,7 +102,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_exists`
@@ -122,7 +122,7 @@ On failure, the path is displayed.
 path : /path/to/existing-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -144,7 +144,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-directory
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_dir_not_exists`
@@ -164,7 +164,7 @@ On failure, the path is displayed.
 path : /path/to/existing-directory
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -186,7 +186,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-link-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_link_not_exists`
@@ -206,7 +206,7 @@ On failure, the path is displayed.
 path : /path/to/existing-link-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -228,7 +228,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-block-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_block_not_exists`
@@ -248,7 +248,7 @@ On failure, the path is displayed.
 path : /path/to/existing-block-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -270,7 +270,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-character-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_character_not_exists`
@@ -290,7 +290,7 @@ On failure, the path is displayed.
 path : /path/to/existing-character-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -312,7 +312,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-socket
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_socket_not_exists`
@@ -332,7 +332,7 @@ On failure, the path is displayed.
 path : /path/to/existing-socket
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -354,7 +354,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-fifo-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_fifo_not_exists`
@@ -374,7 +374,7 @@ On failure, the path is displayed.
 path : /path/to/existing-fifo-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 ---
@@ -401,7 +401,7 @@ On failure, the path is displayed.
 path : /path/to/executable-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_executable`
@@ -421,7 +421,7 @@ On failure, the path is displayed.
 path : /path/to/executable-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -444,7 +444,7 @@ path : /path/to/notowner
 owner : user
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_file_owner`
@@ -465,7 +465,7 @@ path : /path/to/owner
 owner : $owner
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -488,7 +488,7 @@ path : /path/to/nopermission
 permission: $permission
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_file_permission`
@@ -509,7 +509,7 @@ path : /path/to/permission
 permission : $permission
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -523,7 +523,7 @@ Fail if the given file size does not match the input.
 ```
 On failure, the path and expected bytecount are displayed.
 
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -545,7 +545,7 @@ On failure, the path is displayed.
 path : /path/to/notzerobyte
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_size_not_zero`
@@ -565,7 +565,7 @@ On failure, the path is displayed.
 path : /path/to/zerobyte
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -587,7 +587,7 @@ On failure, the path is displayed.
 path : /path/to/groupidnotset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_group_id_set`
@@ -607,7 +607,7 @@ On failure, the path is displayed.
 path : /path/to/groupdidset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -629,7 +629,7 @@ On failure, the path is displayed.
 path : /path/to/useridnotset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_user_id_set`
@@ -649,7 +649,7 @@ On failure, the path is displayed.
 path : /path/to/userdidset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -671,7 +671,7 @@ On failure, the path is displayed.
 path : /path/to/notstickybit
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_sticky_bit`
@@ -691,7 +691,7 @@ On failure, the path is displayed.
 path : /path/to/stickybit
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -714,7 +714,7 @@ output (2 lines) : content-line-1
 content-line-2
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_empty`
@@ -730,7 +730,7 @@ On failure, the path is displayed.
 path : /path/to/non-empty-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -746,7 +746,7 @@ Fail if the given file does not contain the regex.
 
 On failure, the path and expected regex are displayed.
 
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -759,7 +759,7 @@ Fail if the given file contains the regex or if the file does not exist.
 ```
 On failure, the path and regex are displayed.
 
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -776,7 +776,7 @@ On failure, the path is displayed.
 path : /path/to/symlink
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_symlink_to`
@@ -795,7 +795,7 @@ path : /path/to/symlink
 path : /path/to/symlink
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ### `assert_files_equal`
 Fail if the given files are not the same.
@@ -811,7 +811,7 @@ path1 : /path/to/file1
 path2 : /path/to/file2
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 ---
