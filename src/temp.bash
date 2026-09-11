@@ -62,34 +62,36 @@
 #   STDERR - error messages
 temp_make() {
   # Check caller.
-  if ! ( batslib_is_caller --indirect 'setup' \
-      || batslib_is_caller --indirect 'setup_file' \
-      || batslib_is_caller --indirect "$BATS_TEST_NAME" \
-      || batslib_is_caller --indirect 'teardown' \
-      || batslib_is_caller --indirect 'teardown_file' )
-  then
-    echo "Must be called from \`setup', \`@test' or \`teardown'" \
-      | batslib_decorate 'ERROR: temp_make' \
-      | fail
+  if ! (batslib_is_caller --indirect 'setup' ||
+    batslib_is_caller --indirect 'setup_file' ||
+    batslib_is_caller --indirect "$BATS_TEST_NAME" ||
+    batslib_is_caller --indirect 'teardown' ||
+    batslib_is_caller --indirect 'teardown_file'); then
+    echo "Must be called from \`setup', \`@test' or \`teardown'" |
+      batslib_decorate 'ERROR: temp_make' |
+      fail
     return $?
   fi
 
   # Handle options.
   local prefix=''
 
-  while (( $# > 0 )); do
+  while (($# > 0)); do
     case "$1" in
-      -p|--prefix)
-        if (( $# < 2 )); then
-          echo "\`--prefix' requires an argument" \
-            | batslib_decorate 'ERROR: temp_make' \
-            | fail
+      -p | --prefix)
+        if (($# < 2)); then
+          echo "\`--prefix' requires an argument" |
+            batslib_decorate 'ERROR: temp_make' |
+            fail
           return $?
         fi
         prefix="$2"
         shift 2
         ;;
-      --) shift; break ;;
+      --)
+        shift
+        break
+        ;;
       *) break ;;
     esac
   done
@@ -101,10 +103,10 @@ temp_make() {
   template+='-XXXXXX'
 
   local path
-  if ! path="$(mktemp -d  --  "${BATS_TMPDIR}/${template}" 2>&1)"; then
-    echo "$path" \
-      | batslib_decorate 'ERROR: temp_make' \
-      | fail
+  if ! path="$(mktemp -d -- "${BATS_TMPDIR}/${template}" 2>&1)"; then
+    echo "$path" |
+      batslib_decorate 'ERROR: temp_make' |
+      fail
     return $?
   fi
 
@@ -157,24 +159,23 @@ temp_del() {
     return 0
   elif [[ ${BATSLIB_TEMP_PRESERVE_ON_FAILURE-} == '1' ]]; then
     # Check caller.
-    if ! ( batslib_is_caller --indirect 'teardown' \
-        || batslib_is_caller --indirect 'teardown_file' )
-    then
-      echo "Must be called from \`teardown' or \`teardown_file' when using \`BATSLIB_TEMP_PRESERVE_ON_FAILURE'" \
-        | batslib_decorate 'ERROR: temp_del' \
-        | fail
+    if ! (batslib_is_caller --indirect 'teardown' ||
+      batslib_is_caller --indirect 'teardown_file'); then
+      echo "Must be called from \`teardown' or \`teardown_file' when using \`BATSLIB_TEMP_PRESERVE_ON_FAILURE'" |
+        batslib_decorate 'ERROR: temp_del' |
+        fail
       return $?
     fi
 
-    (( ${BATS_TEST_COMPLETED:-0} != 1 )) && return 0
+    ((${BATS_TEST_COMPLETED:-0} != 1)) && return 0
   fi
 
   # Delete directory.
   local result
-  if ! result="$(rm -r -- "$path" 2>&1 >/dev/null )"; then
-    echo "$result" \
-      | batslib_decorate 'ERROR: temp_del' \
-      | fail
+  if ! result="$(rm -r -- "$path" 2>&1 >/dev/null)"; then
+    echo "$result" |
+      batslib_decorate 'ERROR: temp_del' |
+      fail
     return $?
   fi
 }
