@@ -1,6 +1,6 @@
 {
   "name": "@bats-hardened/bats-file",
-  "version": "0.2.0",
+  "version": "0.4.1-beta04",
   "private": true,
   "peerDependencies": {
     "@bats-hardened/bats-support": "0.3.1-beta06"
