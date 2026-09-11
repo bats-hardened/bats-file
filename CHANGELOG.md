@@ -21,7 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - fixed internal unset variable errors with `set -u` (#33)
 - make `temp_del` work even when contents are write protected (#31)
 - parameter documentation for `assert_file_permissions` (#47)
-- tests use `bats_load_library bats-support` (#48) 
+- tests use `bats_load_library bats-support` (#48)
 - fix `temp_make` template to work with Alpine's `mktemp` (#52)
 - removed `temp.bash`'s executable bit (#55)
 - use new `bats_sudo` helper to avoid running `sudo` as root/when not available (#53, 54)
@@ -34,7 +34,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Added assert_files_equal assert_files_not_equal functions!
 - Added 2 test scripts for assert_files_equal assert_files_not_equal
 
-
 ## [0.2.0] - 2016-12-07
 
 ### Added
@@ -45,7 +44,6 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 - Function comments listing path transformation variables incorrectly
 
-
 ## 0.1.0 - 2016-03-22
 
 ### Added
@@ -53,6 +51,5 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Testing file existence with `assert_file_exist` and
   `assert_file_not_exist`
 - `npm` support
-
 
 [0.2.0]: https://github.com/bats-core/bats-file/compare/v0.1.0...v0.2.0
