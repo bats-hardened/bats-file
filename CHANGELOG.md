@@ -21,7 +21,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - fixed internal unset variable errors with `set -u` (#33)
 - make `temp_del` work even when contents are write protected (#31)
 - parameter documentation for `assert_file_permissions` (#47)
-- tests use `bats_load_library bats-support` (#48) 
+- tests use `bats_load_library bats-support` (#48)
 - fix `temp_make` template to work with Alpine's `mktemp` (#52)
 - removed `temp.bash`'s executable bit (#55)
 - use new `bats_sudo` helper to avoid running `sudo` as root/when not available (#53, 54)

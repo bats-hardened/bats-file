@@ -60,7 +60,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-file-or-dir
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_exists`
@@ -80,7 +80,7 @@ On failure, the path is displayed.
 path : /path/to/existent-file-or-dir
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -102,7 +102,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_exists`
@@ -122,7 +122,7 @@ On failure, the path is displayed.
 path : /path/to/existing-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -144,7 +144,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-directory
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_dir_not_exists`
@@ -164,7 +164,7 @@ On failure, the path is displayed.
 path : /path/to/existing-directory
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -186,7 +186,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-link-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_link_not_exists`
@@ -206,7 +206,7 @@ On failure, the path is displayed.
 path : /path/to/existing-link-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -228,7 +228,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-block-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_block_not_exists`
@@ -248,7 +248,7 @@ On failure, the path is displayed.
 path : /path/to/existing-block-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -270,7 +270,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-character-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_character_not_exists`
@@ -290,7 +290,7 @@ On failure, the path is displayed.
 path : /path/to/existing-character-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -312,7 +312,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-socket
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_socket_not_exists`
@@ -332,7 +332,7 @@ On failure, the path is displayed.
 path : /path/to/existing-socket
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -354,7 +354,7 @@ On failure, the path is displayed.
 path : /path/to/non-existent-fifo-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_fifo_not_exists`
@@ -374,7 +374,7 @@ On failure, the path is displayed.
 path : /path/to/existing-fifo-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 ---
@@ -401,7 +401,7 @@ On failure, the path is displayed.
 path : /path/to/executable-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_executable`
@@ -421,7 +421,7 @@ On failure, the path is displayed.
 path : /path/to/executable-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -444,7 +444,7 @@ path : /path/to/notowner
 owner : user
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_file_owner`
@@ -465,7 +465,7 @@ path : /path/to/owner
 owner : $owner
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -488,7 +488,7 @@ path : /path/to/nopermission
 permission: $permission
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_file_permission`
@@ -509,7 +509,7 @@ path : /path/to/permission
 permission : $permission
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -523,7 +523,7 @@ Fail if the given file size does not match the input.
 ```
 On failure, the path and expected bytecount are displayed.
 
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -545,7 +545,7 @@ On failure, the path is displayed.
 path : /path/to/notzerobyte
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_size_not_zero`
@@ -565,7 +565,7 @@ On failure, the path is displayed.
 path : /path/to/zerobyte
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -587,7 +587,7 @@ On failure, the path is displayed.
 path : /path/to/groupidnotset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_group_id_set`
@@ -607,7 +607,7 @@ On failure, the path is displayed.
 path : /path/to/groupdidset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -629,7 +629,7 @@ On failure, the path is displayed.
 path : /path/to/useridnotset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_user_id_set`
@@ -649,7 +649,7 @@ On failure, the path is displayed.
 path : /path/to/userdidset
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -671,7 +671,7 @@ On failure, the path is displayed.
 path : /path/to/notstickybit
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_sticky_bit`
@@ -691,7 +691,7 @@ On failure, the path is displayed.
 path : /path/to/stickybit
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -714,7 +714,7 @@ output (2 lines) : content-line-1
 content-line-2
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_file_not_empty`
@@ -730,7 +730,7 @@ On failure, the path is displayed.
 path : /path/to/non-empty-file
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -742,11 +742,12 @@ Fail if the given file does not contain the regex.
     assert_file_contains /path/to/non-empty-file regex engine
 }
 ```
-`engine` is optional and can be one of `grep`, `egrep` or `pcregrep`. The specified engine must be available on the system running the tests.
+`engine` is optional and can be one of `grep`, `egrep` or `pcregrep`. The
+specified engine must be available on the system running the tests.
 
 On failure, the path and expected regex are displayed.
 
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -759,7 +760,7 @@ Fail if the given file contains the regex or if the file does not exist.
 ```
 On failure, the path and regex are displayed.
 
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 
@@ -776,7 +777,7 @@ On failure, the path is displayed.
 path : /path/to/symlink
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 
 ### `assert_not_symlink_to`
@@ -795,7 +796,7 @@ path : /path/to/symlink
 path : /path/to/symlink
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ### `assert_files_equal`
 Fail if the given files are not the same.
@@ -811,7 +812,7 @@ path1 : /path/to/file1
 path2 : /path/to/file2
 --
 ```
-[Back to index](#Index-of-all-functions)
+[Back to index](#index-of-all-functions)
 
 ---
 ---
@@ -980,7 +981,9 @@ path : <temp>/path/to/non-existent-file
 
 ## **Development**
 
-No one would want to develop piece of bash dependent libraries on their laptops due to single mistake (globbing for instance) can cause a disaster. In order to prevent this there is a Vagrantfile that you can use.
+No one would want to develop piece of bash dependent libraries on their laptops
+due to single mistake (globbing for instance) can cause a disaster. In order to
+prevent this there is a Vagrantfile that you can use.
 
 In order to start development environment, you have to take two steps;
 
@@ -990,9 +993,15 @@ user@localhost:~/bats-file$ vagrant up
 
 The line above spins up a brand new virtualbox image and provisions with prerequisites.
 
-However, as the tests require not to be on a network share due to running commands eg: `mknod`, the files are shared into the VM by `rsync` module. Rsync in vagrant only runs initially and stops. During the active development, you regularly change files and might want to see the impact. To achieve that, you have to use auto rsync.
+However, as the tests require not to be on a network share due to running
+commands eg: `mknod`, the files are shared into the VM by `rsync` module. Rsync
+in vagrant only runs initially and stops. During the active development, you
+regularly change files and might want to see the impact. To achieve that, you
+have to use auto rsync.
 
-> `auto-rsync` is a long running command. It means that it has to run on terminal screen as long as the VM is up and running. So, you have to keep this in a dedicated terminal screen.
+> `auto-rsync` is a long running command. It means that it has to run on terminal
+> screen as long as the VM is up and running. So, you have to keep this in a
+> dedicated terminal screen.
 
 After bringing up the VM, you can simply run following command;
 
@@ -1000,7 +1009,9 @@ After bringing up the VM, you can simply run following command;
 user@localhost:~/bats-file$ vagrant rsync-auto
 ```
 
-**WARNING! WARNING! WARNING!:** There will be a small delay between file save and sync. When you save a file please keep eye on the terminal window/pane and sync is triggered and finished. Simply run your next test with 5s-10s delay.
+**WARNING! WARNING! WARNING!:** There will be a small delay between file save
+and sync. When you save a file please keep eye on the terminal window/pane and
+sync is triggered and finished. Simply run your next test with 5s-10s delay.
 
 The repo files can be found under `/home/vagrant/bats-file` and you can run tests with
 
@@ -1021,7 +1032,9 @@ user@localhost:~/bats-file$ vagrant halt
 - Why Vagrant, not Docker
   - This replicates the 100% CI
 - Why EoL Xenial image
-  - This replicates the 100% CI. Also, one step at a time. This wasn't in place at all. However, this change will bring up other concerns. So, that problems should be solved at another time.
+  - This replicates the 100% CI. Also, one step at a time. This wasn't in place
+    at all. However, this change will bring up other concerns. So, that problems
+    should be solved at another time.
 
 <!-- REFERENCES -->
 
