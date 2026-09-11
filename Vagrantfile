@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     mkdir -p $HOME/.local/bin
     echo 'export PATH="$PATH:$HOME/.local/bin"' >> /home/vagrant/.bashrc
-    git clone --depth 1 https://github.com/bats-core/bats-support /home/vagrant/bats-support
+    git clone --depth 1 https://github.com/bats-hardened/bats-support /home/vagrant/bats-support
     /home/vagrant/bats-file/script/install-bats.sh
   SHELL
 end
