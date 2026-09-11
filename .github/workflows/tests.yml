@@ -8,6 +8,9 @@ on:
       - "!dependabot/**"
   pull_request:
 
+permissions:
+  contents: read
+
 # Group runs by workflow and PR/ref; release-triggered runs use a separate
 # `-release` suffix. Cancel an older run when a new one uses the same group.
 concurrency:
