@@ -267,19 +267,20 @@ assert_files_equal() {
   fi
 }
 
-# Get the owner of a file
+# Get the owner of a file using the installed stat implementation.
 # Arguments:
-# $1 - output variable name
-# $2 - path to file
+# $1 - path to file
 _bats_get_file_owner() {
-  local -r output_var=$1
-  local -r file=$2
+  local -r file=$1
   if [[ "$OSTYPE" == darwin* ]]; then
-      local -ra cmd_params=(-f %Su)
+    local -ra preferred_stat_args=(-f %Su)
+    local -ra fallback_stat_args=(-c %U)
   else
-      local -ra cmd_params=(-c %U)
+    local -ra preferred_stat_args=(-c %U)
+    local -ra fallback_stat_args=(-f %Su)
   fi
-  printf -v "$output_var" "%s" "$(stat "${cmd_params[@]}" "$file")"
+  stat "${preferred_stat_args[@]}" "$file" 2>/dev/null ||
+    stat "${fallback_stat_args[@]}" "$file"
 }
 
 # Fail and display path of the user is not the owner of a file. This
@@ -300,7 +301,7 @@ assert_file_owner() {
   local -r file="$2"
 
   local actual_owner
-  _bats_get_file_owner actual_owner "$file"
+  actual_owner=$(_bats_get_file_owner "$file")
   readonly actual_owner
 
   if [[ "$actual_owner" != "$owner" ]]; then
@@ -871,7 +872,7 @@ assert_not_file_owner() {
   local -r file="$2"
 
   local actual_owner
-  _bats_get_file_owner actual_owner "$file"
+  actual_owner=$(_bats_get_file_owner "$file")
   readonly actual_owner
 
   if [[ "$actual_owner" == "$expected_owner" ]]; then
