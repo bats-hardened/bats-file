@@ -312,6 +312,22 @@ assert_file_owner() {
   fi
 }
 
+# Get the permissions of a file using the installed stat implementation.
+# Arguments:
+# $1 - path to file
+_bats_get_file_permission() {
+  local -r file=$1
+  if [[ "$OSTYPE" == darwin* ]]; then
+    local -ra preferred_stat_args=(-f %A)
+    local -ra fallback_stat_args=(-c %a)
+  else
+    local -ra preferred_stat_args=(-c %a)
+    local -ra fallback_stat_args=(-f %A)
+  fi
+  stat "${preferred_stat_args[@]}" "$file" 2>/dev/null ||
+    stat "${fallback_stat_args[@]}" "$file"
+}
+
 # Fail if file does not have given permissions. This
 # function is the logical complement of `assert_file_not_permission'.
 #
@@ -330,11 +346,9 @@ assert_file_permission() {
   local -r permission="$1"
   local -r file="$2"
 
-  if [[ "$OSTYPE" == darwin* ]]; then
-    local -r actual_permission=$(stat -f '%A' "$file")
-  else
-    local -r actual_permission=$(stat -c "%a" "$file")
-  fi
+  local actual_permission
+  actual_permission=$(_bats_get_file_permission "$file")
+  readonly actual_permission
 
   if [[ "$actual_permission" != "$permission" ]]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
@@ -891,11 +905,9 @@ assert_not_file_permission() {
   local -r permission="$1"
   local -r file="$2"
 
-  if [[ "$OSTYPE" == darwin* ]]; then
-    local -r actual_permission=$(stat -f '%A' "$file")
-  else
-    local -r actual_permission=$(stat -c "%a" "$file")
-  fi
+  local actual_permission
+  actual_permission=$(_bats_get_file_permission "$file")
+  readonly actual_permission
 
   if [ "$actual_permission" -eq "$permission" ]; then
     local -r rem="${BATSLIB_FILE_PATH_REM-}"
